@@ -30,6 +30,7 @@ fn sort_arr_benchmark_trait_fromstr_unstable(c: &mut Criterion) {
     let file = include_str!("../../data.txt");
     let elves = trait_fromstr_unstable::Elves::from_str(file).expect("Failed to parse file");
     let sum = elves.get_fat_sum(3);
+    dbg!(sum);
 
     c.bench_function("trait_FromStr__unstable_sorting algorithm", |b| {
         b.iter(|| sum)
