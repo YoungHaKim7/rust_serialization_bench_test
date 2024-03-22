@@ -1,3 +1,84 @@
+pub mod trait_fromstr_unstable {
+
+    use std::{str::FromStr, string::ParseError};
+
+    pub struct Elves {
+        calories: Vec<u32>,
+    }
+
+    impl Elves {
+        pub fn get_fat(&self) -> &u32 {
+            &self.calories[0]
+        }
+
+        pub fn get_fat_sum(&self, top: usize) -> u32 {
+            let mut sum = 0;
+            for i in 0..top {
+                sum += self.calories[i];
+            }
+            sum
+        }
+    }
+
+    impl FromStr for Elves {
+        type Err = ParseError;
+
+        fn from_str(s: &str) -> Result<Self, Self::Err> {
+            let mut calories = s
+                .trim()
+                .split("\n\n")
+                .map(|elf| {
+                    elf.split("\n")
+                        .fold(0, |acc, itm| acc + itm.parse::<u32>().unwrap())
+                })
+                .collect::<Vec<u32>>();
+            calories.sort_unstable();
+            calories.reverse();
+            Ok(Elves { calories })
+        }
+    }
+}
+
+pub mod trait_fromstr {
+    use std::{str::FromStr, string::ParseError};
+
+    pub struct Elves {
+        calories: Vec<u32>,
+    }
+
+    impl Elves {
+        pub fn get_fat(&self) -> &u32 {
+            &self.calories[0]
+        }
+
+        pub fn get_fat_sum(&self, top: usize) -> u32 {
+            let mut sum = 0;
+            for i in 0..top {
+                sum += self.calories[i];
+            }
+            sum
+        }
+    }
+
+    impl FromStr for Elves {
+        type Err = ParseError;
+
+        fn from_str(s: &str) -> Result<Self, Self::Err> {
+            let mut calories = s
+                .trim()
+                .split("\n\n")
+                .map(|elf| {
+                    elf.split("\n")
+                        .fold(0, |acc, itm| acc + itm.parse::<u32>().unwrap())
+                })
+                .collect::<Vec<u32>>();
+            calories.sort();
+            calories.reverse();
+            Ok(Elves { calories })
+        }
+    }
+}
+
 pub mod sorting_trait {
     trait Top<T> {
         fn top<const N: usize>(self) -> [T; N];
