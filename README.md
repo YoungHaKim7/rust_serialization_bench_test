@@ -1,5 +1,10 @@
 # rust_serialization_bench_test
 
+- https://doc.rust-lang.org/cargo/commands/cargo-bench.html
+
+
+<hr>
+
 - Json보다 1,000배가 빠르다는데 테스트 해보자
 
 - rust crates.io
