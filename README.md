@@ -9,3 +9,7 @@
 
 # Thanks to 
 - https://github.com/djkoloski/rust_serialization_benchmark
+
+- https://github.com/letsgetrusty/benchmark_tests
+  - Benchmark testing your Rust code | Let's Get Rusty
+    - https://youtu.be/eIB3Pd5LBkc?si=qc_F3_qaCb57Vu0a
