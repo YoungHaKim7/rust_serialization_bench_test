@@ -2,6 +2,7 @@
 
 - https://doc.rust-lang.org/cargo/commands/cargo-bench.html
 
+- https://github.com/YoungHaKim7/rust_advent_training
 
 <hr>
 
